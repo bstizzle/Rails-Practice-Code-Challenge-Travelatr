@@ -1,0 +1,19 @@
+<h1><%= @destination.name %></h1>
+
+<h3>Recent Blog Posts</h3>
+<ul>
+<% @destination.posts.last(5).each do |p| %>
+    <li>
+    <%= link_to p.title, post_path(p)%>
+    </li>
+    <br>
+<% end %>
+</ul>
+<h3>Featured Blog Post</h3>
+<ul>
+    <li>
+    <%= link_to @destination.feat_post.title, post_path(@destination.feat_post) %>
+    </li>
+</ul>
+<br>
+<h3><%= "Average age of blogger: #{@destination.avg_age}" %>
